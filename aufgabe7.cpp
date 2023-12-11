@@ -276,10 +276,11 @@ void stat(const char* s, int* z, int* w) {
  if (isspace(*(s + 1)) || *(s + 1) == '\0')
 {               
  (*w)++;
- }
+ } ////// Dusan ist ein got
+ 
 }
 
- s++;  
+ s++; 
     }
 }
 
