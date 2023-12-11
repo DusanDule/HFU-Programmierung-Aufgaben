@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string.h>
 
-//Laurin stinkt 
+//Laurin stinkt 123
 
 /*
 int main()
