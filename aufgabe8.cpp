@@ -125,7 +125,7 @@ int main() {
 
                                                     // AUFGABE 4
 
-                                                    // Aufzählungstyp für Monate
+/*                                         
 typedef enum {
     JANUAR = 1, FEBRUAR, MÄRZ, APRIL, MAI, JUNI, JULI, AUGUST, SEPTEMBER, OKTOBER, NOVEMBER, DEZEMBER
 } Monat;
@@ -177,4 +177,164 @@ int main() {
 
     return 0;
 }
+*/
 
+                                                                  // AUFGABE 5
+
+/*
+#include <stdio.h>
+
+// Definition der Vektor-Struktur
+struct Vektor {
+    float x;
+    float y;
+};
+
+// Funktion für das Skalarprodukt
+float skalarProdukt(const struct Vektor* a, const struct Vektor* b) {
+    return a->x * b->x + a->y * b->y;
+}
+
+// Funktion für die Vektorsumme
+struct Vektor vektorSumme(const struct Vektor* a, const struct Vektor* b) {
+    struct Vektor result;
+    result.x = a->x + b->x;
+    result.y = a->y + b->y;
+    return result;
+}
+
+// Funktion für das Kreuzprodukt
+struct Vektor kreuzProdukt(const struct Vektor* a, const struct Vektor* b) {
+    struct Vektor result;
+    result.x = a->x * b->y - a->y * b->x;
+    result.y = a->x * b->y - a->y * b->x;
+    return result;
+}
+
+// Funktion für die Multiplikation eines Vektors mit einem Skalar
+struct Vektor skalierterVektor(float faktor, const struct Vektor* x) {
+    struct Vektor result;
+    result.x = faktor * x->x;
+    result.y = faktor * x->y;
+    return result;
+}
+
+int main() {
+    // Testen der Funktionen
+    struct Vektor v1 = {2.0, 3.0};
+    struct Vektor v2 = {4.0, 1.5};
+
+    printf("Skalarprodukt: %f\n", skalarProdukt(&v1, &v2));
+
+    struct Vektor summe = vektorSumme(&v1, &v2);
+    printf("Vektorsumme: (%f, %f)\n", summe.x, summe.y);
+
+    struct Vektor kreuz = kreuzProdukt(&v1, &v2);
+    printf("Kreuzprodukt: (%f, %f)\n", kreuz.x, kreuz.y);
+
+    float faktor = 1.5;
+    struct Vektor skaliert = skalierterVektor(faktor, &v1);
+    printf("Skalierter Vektor: (%f, %f)\n", skaliert.x, skaliert.y);
+
+    return 0;
+}
+*/
+
+                                                      // AUFGABE 6
+/*
+#include <stdio.h>
+#include <string.h>
+
+// Struktur für das Geburtsdatum
+struct Datum {
+    int tag;
+    int monat;
+    int jahr;
+};
+
+// Struktur für eine Person
+struct Person {
+    char name[20];
+    char vorname[20];
+    struct Datum geburtsdatum;
+};
+
+// Funktion zum Finden und Ausgeben des Geburtsdatums einer Person
+void findeGeburtsdatum(const struct Person* personen, int personenzahl, const char* gesuchterName, const char* gesuchterVorname) {
+    for (int i = 0; i < personenzahl; ++i) {
+        if (strcmp(personen[i].name, gesuchterName) == 0 && strcmp(personen[i].vorname, gesuchterVorname) == 0) {
+            printf("%s %s wurde am %d. %d. %d geboren.\n", gesuchterVorname, gesuchterName, personen[i].geburtsdatum.tag, personen[i].geburtsdatum.monat, personen[i].geburtsdatum.jahr);
+            return; // Person gefunden, Funktion beenden
+        }
+    }
+
+    // Falls die Schleife durchlaufen wurde und die Person nicht gefunden wurde
+    printf("Person %s %s nicht gefunden.\n", gesuchterVorname, gesuchterName);
+}
+
+int main() {
+    // Initialisierung der Personendatenbank
+    struct Person personen[] = {
+        {"Dusan", "Risteski", {12, 12, 2002}},
+        {"Duschan", "Ristesky", {12, 12, 2003}},
+        {"Dule", "Rist", {12, 12, 2004}},
+        // Weitere Personen nach Bedarf hinzufügen
+    };
+
+    int personenzahl = sizeof(personen) / sizeof(personen[0]);
+
+    // Testen der Funktion
+    findeGeburtsdatum(personen, personenzahl, "Dusan", "Risteski");
+    findeGeburtsdatum(personen, personenzahl, "Duschan", "Ristesky");
+
+    return 0;
+}
+*/
+
+                                                     // AUFGABE 7
+
+/*
+
+ int main( ) {
+ int zahlen [ 5 ] ;
+ int i , j ;
+for ( i = 2 0; i > 1 5; i=i =1)
+{
+ zahlen[20 - i] = i % 3 ;
+ }
+ for ( i = 0 ; i < 5 ; i=i +1)
+ {
+ for ( j = 5 ; j > 0 ; j=j =2)
+ {
+ zahlen[5 - j] = zahlen [ i / 2] + zahlen [j  - 1];
+ }
+ }
+ return 0 ;
+ }
+*/
+
+#include <stdio.h>
+
+int main() {
+    int zahlen[5];
+    int i, j;
+
+    // Äußere Schleife
+    for (i = 20; i > 15; i = i - 1) {
+        zahlen[20 - i] = i % 3;
+    }
+
+    // Innere Schleife
+    for (i = 0; i < 5; i = i + 1) {
+        for (j = 5; j > 0; j = j - 2) {
+            zahlen[5 - j] = zahlen[i / 2] + zahlen[j - 1];
+        }
+    }
+
+    // Ausgabe der Werte
+    for (i = 0; i < 5; i = i + 1) {
+        printf("zahlen[%d] = %d\n", i, zahlen[i]);
+    }
+
+    return 0;
+}
