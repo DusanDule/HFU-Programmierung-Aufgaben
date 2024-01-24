@@ -6,7 +6,7 @@
 
                                                            // AUFGABE 1
 
-/*
+
 struct Punkt
 {
     int x;
@@ -28,7 +28,7 @@ int main(int argc, char const *argv[])
     return 0;
 }
 
-*/
+
                                                    // AUFGBABE 2
 
    /*                                                

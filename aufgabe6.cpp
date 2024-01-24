@@ -165,23 +165,28 @@ int main() {
 */
 
 
-/*                                                               // AUFGABE 7
-int vorkommen(const char* s, const char* m) {
+                                                             // AUFGABE 7
+int vorkommen(const char *s, const char *m)
+{
     int count = 0;
     int i = 0;
 
-while (s[i] != '\0') {
- if (s[i] == m[0]) {
-int j = 0;
- while (s[i + j] == m[j] && m[j] != '\0') {
-j++;
-}
-if (m[j] == '\0') {
- count++;
-}
-}
-i++;
-}
+    while (s[i] != '\0')
+    {
+        if (s[i] == m[0])
+        {
+            int j = 0;
+            while (s[i + j] == m[j] && m[j] != '\0')
+            {
+                j++;
+            }
+            if (m[j] == '\0')
+            {
+                count++;
+            }
+        }
+        i++;
+    }
 
     return count;
 }
@@ -196,4 +201,3 @@ int main() {
 
     return 0;
 }
-*/
